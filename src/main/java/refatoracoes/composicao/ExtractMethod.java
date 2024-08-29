@@ -1,3 +1,4 @@
+package refatoracoes.composicao;
 
 public class ExtractMethod {
 	void printOwing(String name) {
