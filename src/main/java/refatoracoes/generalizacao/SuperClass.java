@@ -14,6 +14,4 @@ public abstract class SuperClass {
 		return this.health;
 	}
 
-	public String getStatus() { return ""; }
-
 }

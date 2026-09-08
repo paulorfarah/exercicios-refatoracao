@@ -8,4 +8,8 @@ public class PushDownMethod extends SuperClass {
 		System.out.println("PushDownMethod");
 	}
 
+	public String getStatus() {
+		return this.status;
+	}
+
 }
