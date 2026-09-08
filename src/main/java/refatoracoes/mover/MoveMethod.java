@@ -10,7 +10,8 @@ public class MoveMethod {
     }
 
     private Product[] getProducts() {
-        return new Product[0];
+        // TODO Auto-generated method stub
+        return null;
     }
 
     public class Product {
