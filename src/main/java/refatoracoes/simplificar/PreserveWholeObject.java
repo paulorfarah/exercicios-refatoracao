@@ -1,32 +1,28 @@
 package refatoracoes.simplificar;
 
 public class PreserveWholeObject {
+    public PreserveWholeObject(DaysTempRange daysTempRange, Plan plan) {
+        boolean withinPlan = plan.withinRange(daysTempRange);
+    }
 
-	public PreserveWholeObject(DaysTempRange daysTempRange, Plan plan) {
-		int low = daysTempRange.getLow();
-		int high = daysTempRange.getHigh();
-		boolean withinPlan = plan.withinRange(low, high);
-	}
+    public class DaysTempRange {
+        int daysMin = 0;
+        int daysMax = 010;
 
-	public class DaysTempRange {
-		int daysMin = 0;
-		int daysMax = 010;
-		
-		public int getLow() {
-			return this.daysMin;
-		}
-		
-		public int getHigh() {
-			return this.daysMax;
-		}
-	}
-	
-	public class Plan {
+        public int getLow() {
+            return daysMin;
+        }
 
-		public boolean withinRange(int low, int high) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-		
-	}
+        public int getHigh() {
+            return daysMax;
+        }
+    }
+
+    public class Plan {
+        public boolean withinRange(DaysTempRange daysTempRange) {
+            int low = daysTempRange.getLow();
+            int high = daysTempRange.getHigh();
+            return false;
+        }
+    }
 }

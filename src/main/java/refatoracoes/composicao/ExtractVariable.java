@@ -1,17 +1,17 @@
 package refatoracoes.composicao;
 
 public class ExtractVariable {
-	void renderBanner(String platform, String browser, int resize) {
-		  if ((platform.toUpperCase().indexOf("MAC") > -1) &&
-		       (browser.toUpperCase().indexOf("IE") > -1) &&
-		        wasInitialized() && resize > 0 )
-		  {
-		    // do something
-		  }
-		}
+    void renderBanner(String platform, String browser, int resize) {
+        boolean isMacOs = platform.toUpperCase().contains("MAC");
+        boolean isInternetExplorer = browser.toUpperCase().contains("IE");
+        boolean wasResized = resize > 0;
 
-	private boolean wasInitialized() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+        if (isMacOs && isInternetExplorer && wasInitialized() && wasResized) {
+            // do something
+        }
+    }
+
+    private boolean wasInitialized() {
+        return false;
+    }
 }
