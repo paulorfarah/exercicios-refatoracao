@@ -6,4 +6,8 @@ public class PushdownField extends SuperClass{
 		System.out.println("PushdownField");
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
 }
