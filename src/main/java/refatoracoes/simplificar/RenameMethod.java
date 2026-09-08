@@ -1,13 +1,13 @@
 package refatoracoes.simplificar;
 
 public class RenameMethod {
-	  private String name = "name";
-	  private String lastName = "lastname";
+    private String name = "name";
+    private String lastName = "lastname";
 
-	  /**
-	   * Method returns customer's lastname.
-	   */
-	  String getlnm() {
-	    return lastName;
-	  }
+    /**
+     * Method returns customer's lastname.
+     */
+    String getLastName() {
+        return lastName;
+    }
 }
