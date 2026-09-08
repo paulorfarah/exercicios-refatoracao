@@ -9,4 +9,9 @@ public abstract class SuperClass {
 	public float getFuel() {
 		return this.fuel;
 	}
+
+	public float getHealth() {
+		return this.health;
+	}
+
 }

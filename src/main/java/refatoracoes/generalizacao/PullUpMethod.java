@@ -5,9 +5,5 @@ public class PullUpMethod extends SuperClass {
 	public void publicMethod() {
 		System.out.println("PullUpMethod");		
 	}
-	
-	public float getHealth() {
-		return this.health;
-	}
 
 }
