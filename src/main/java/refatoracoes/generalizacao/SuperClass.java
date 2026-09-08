@@ -1,6 +1,7 @@
 package refatoracoes.generalizacao;
 
 public abstract class SuperClass {
+	protected float health;
 	private float fuel;
 	
 	public abstract void publicMethod();
