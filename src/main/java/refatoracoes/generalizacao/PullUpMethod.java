@@ -1,15 +1,23 @@
 package refatoracoes.generalizacao;
 
-public class PullUpMethod extends SuperClass {
+public abstract class SuperClass {
+	private float fuel;
+	protected float energia;
 
-	private float health;
-	
+	public abstract void publicMethod();
+
+	public float getFuel() {
+		return this.fuel;
+	}
+
+	public float getEnergia() {
+		return this.energia;
+	}
+}
+
+class PullUpMethod extends SuperClass {
+
 	public void publicMethod() {
-		System.out.println("PullUpMethod");		
+		System.out.println("PullUpMethod");
 	}
-	
-	public float getHealth() {
-		return this.health;
-	}
-
 }
