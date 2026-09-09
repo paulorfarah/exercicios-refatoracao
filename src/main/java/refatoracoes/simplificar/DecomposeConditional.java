@@ -8,11 +8,23 @@ public class DecomposeConditional {
 
 	public DecomposeConditional(Date date, int quantity, float winterRate, float winterServiceCharge, int summerRate) {
 		float charge;
-		if (date.before(SUMMER_START) || date.after(SUMMER_END)) {
-			charge = quantity * winterRate + winterServiceCharge;
+		if (isSummer(date)) {
+			charge = summerCharge(quantity, summerRate);
 		}
 		else {
-			charge = quantity * summerRate;
+			charge = winterCharge(quantity, winterRate, winterServiceCharge);
 		}
+	}
+
+	private boolean isSummer(Date date) {
+		return date.before(SUMMER_START) || date.after(SUMMER_END);
+	}
+
+	private float summerCharge(int quantity, int summerRate) {
+		return quantity * summerRate;
+	}
+
+	private float winterCharge(int quantity, float winterRate, float winterServiceCharge) {
+		return quantity * winterRate + winterServiceCharge;
 	}
 }
