@@ -2,13 +2,22 @@ package refatoracoes.mover;
 
 public class ExtractClass {
 	public int health;
-	  public int damage;
-	  public int weaponStatus;
-	  public int getDamage() {
-		return damage;
+	private Weapon weapon = new Weapon();
 
-	  }
-	  public void attack() {
-	   // ...
-	  }
+	public int getDamage() {
+		return weapon.getDamage();
+	}
+
+	public void attack() {
+		// ...
+	}
+}
+
+class Weapon {
+	public int damage;
+	public int weaponStatus;
+
+	public int getDamage() {
+		return damage;
+	}
 }
