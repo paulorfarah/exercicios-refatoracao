@@ -3,9 +3,7 @@ package refatoracoes.simplificar;
 public class PreserveWholeObject {
 
 	public PreserveWholeObject(DaysTempRange daysTempRange, Plan plan) {
-		int low = daysTempRange.getLow();
-		int high = daysTempRange.getHigh();
-		boolean withinPlan = plan.withinRange(low, high);
+		boolean withinPlan = plan.withinRange(daysTempRange);
 	}
 
 	public class DaysTempRange {
