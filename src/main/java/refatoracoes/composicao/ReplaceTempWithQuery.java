@@ -2,12 +2,14 @@ package refatoracoes.composicao;
 
 public class ReplaceTempWithQuery {
 	double calculateTotal(int quantity, double itemPrice) {
-		  double basePrice = quantity * itemPrice;
-		  if (basePrice > 1000) {
-		    return basePrice * 0.95;
+		  if (PrecoBase(quantity, itemPrice) > 1000) {
+		    return PrecoBase(quantity, itemPrice) * 0.95;
 		  }
 		  else {
-		    return basePrice * 0.98;
+		    return PrecoBase(quantity, itemPrice) * 0.98;
 		  }
 		}
+	double PrecoBase(int quantity, double itemPrice){
+		return quantity * itemPrice;
+	}
 }
