@@ -26,7 +26,7 @@ public class MoveMethod {
 
 	public double applyRegionalDiscounts(User user, double total) {
 	    double result = total;
-	    switch (user.getCountry()) {
+	    switch (getCountry()) {
 	      case "US": result *= 0.85; break;
 	      case "RU": result *= 0.75; break;
 	      case "CN": result *= 0.9; break;
@@ -34,6 +34,11 @@ public class MoveMethod {
 	    }
 	    return result;
 	  }
+
+	private String country;
+	public String getCountry() {
+		return this.country;
+	}
 	
 	public class Product {
 
@@ -43,11 +48,7 @@ public class MoveMethod {
 	}
 	
 	public class User {
-		private String country;
-		
-		public String getCountry() {
-			return this.country;
-		}
+		public String country = MoveMethod.getCountry();	
 	}
 }
 
