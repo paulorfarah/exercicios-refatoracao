@@ -8,10 +8,9 @@ public class RemoveControlFlag {
 		boolean achou = false;
 		
 		for (String pessoa : pessoas) {
-			if (!achou) {
-				if (pessoa.equals(nome)) {
-					achou = true;
-				}
+			if (pessoa.equals(nome)) {
+				achou = true;
+				break;
 			}
 		}
 	}
