@@ -1,11 +1,12 @@
 package refatoracoes.generalizacao;
 
 public abstract class SuperClass {
-	private float fuel;
 	
 	public abstract void publicMethod();
+
+	private float health;
 	
-	public float getFuel() {
-		return this.fuel;
+	public float getHealth() {
+		return this.health;
 	}
 }
