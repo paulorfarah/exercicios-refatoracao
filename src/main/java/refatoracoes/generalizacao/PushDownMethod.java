@@ -7,4 +7,10 @@ public class PushDownMethod extends SuperClass {
 		
 	}
 
+	private float fuel;
+	
+	public float getFuel() {
+		return this.fuel;
+	}
+
 }
