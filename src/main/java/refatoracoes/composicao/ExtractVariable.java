@@ -2,10 +2,13 @@ package refatoracoes.composicao;
 
 public class ExtractVariable {
 	void renderBanner(String platform, String browser, int resize) {
-		  if ((platform.toUpperCase().indexOf("MAC") > -1) &&
-		       (browser.toUpperCase().indexOf("IE") > -1) &&
-		        wasInitialized() && resize > 0 )
-		  {
+
+		boolean isMac = platform.toUpperCase().indexOf("MAC") > -1;
+		boolean isIE = platform.toUpperCase().indexOf("IE") > -1;
+		boolean initialized = wasInitialized();
+		boolean validResize = resize > 0;
+
+		if (isMac && isIE && initialized && validResize) {
 		    // do something
 		  }
 		}
