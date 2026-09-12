@@ -1,12 +1,17 @@
 package refatoracoes.mover;
 
 public class MoveField {
+
 	public class Class1 {
-		String aField;
+		
 	}
 	
 	public class Class2 {
-		
+		String aField;
+
+		public String getField() {
+			return this.aField;
+		}
 	}
 
 }

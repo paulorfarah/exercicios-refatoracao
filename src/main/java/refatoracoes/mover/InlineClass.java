@@ -2,21 +2,19 @@ package refatoracoes.mover;
 
 public class InlineClass {
 	
-	public class Person {
-		String name;
-		public String getTelephoneNumber() {
-			TelephoneNumber tn = new TelephoneNumber();
-			return tn.getTelephoneNumber();
-		}
-	}
-	
-	public class TelephoneNumber {
-		private String officeAreaCode;
-		private String officeNumber;
+	private Person person;
 
-		public String getTelephoneNumber() {
-			return officeAreaCode + officeNumber;
-		}
+	public InlineClass(Person person, TelephoneNumber telephone) {
+		this.person = person;
+		this.person.setTelephone(telephone);
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+	public Person getPerson() {
+		return this.person;
 	}
 }
 
