@@ -2,10 +2,10 @@ package refatoracoes.composicao;
 
 public class InlineMethod {
 	// ...
-	  int getRating(int numberOfLateDeliveries) {
-	    return moreThanFiveLateDeliveries(numberOfLateDeliveries) ? 2 : 1;
-	  }
-	  boolean moreThanFiveLateDeliveries(int numberOfLateDeliveries) {
-	    return numberOfLateDeliveries > 5;
-	  }
+	int getRating(int numberOfLateDeliveries) {
+		if(numberOfLateDeliveries > 5)
+			return 2;
+		else
+			return 1; 
+	}
 }
