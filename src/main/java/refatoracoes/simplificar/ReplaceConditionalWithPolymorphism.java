@@ -6,17 +6,19 @@ public class ReplaceConditionalWithPolymorphism {
 	private static final int NORWEGIAN_BLUE = 2;
 
 	// ...
-	  double getSpeed(int type, int numberOfCoconuts, Object voltage, boolean isNailed) {
+	  double getSpeed(int type) {
 	    switch (type) {
 	      case EUROPEAN:
-	        return getBaseSpeed();
+	        return European.getSpeed();
 	      case AFRICAN:
-	        return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
+	        return African.getSpeed();
 	      case NORWEGIAN_BLUE:
-			return (isNailed) ? 0 : getBaseSpeed(voltage);
+			return NorwegianBlue.getSpeed();
 	    }
 	    throw new RuntimeException("Should be unreachable");
 	  }
+
+	//retirei (int numberOfCoconuts, Object voltage, boolean isNailed) porque nao parecia coerente
 
 	private double getBaseSpeed() {
 		// TODO Auto-generated method stub
@@ -33,5 +35,22 @@ public class ReplaceConditionalWithPolymorphism {
 		return 0;
 	}
 
+	class European extends Bird {
+  		double getSpeed() {
+    		return getBaseSpeed();
+  		}
+	}
+	
+	class African extends Bird {
+  		double getSpeed() {
+    		return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
+  		}
+	}
+	
+	class NorwegianBlue extends Bird {
+  		double getSpeed() {
+    		return (isNailed) ? 0 : getBaseSpeed(voltage);
+  		}	
+	}
 
 }

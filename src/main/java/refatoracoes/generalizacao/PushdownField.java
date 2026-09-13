@@ -6,4 +6,10 @@ public class PushdownField extends SuperClass{
 		System.out.println("PushdownField");
 	}
 
+	private float fuel;
+	
+	public float getFuel() {
+		return this.fuel;
+	}
+
 }
