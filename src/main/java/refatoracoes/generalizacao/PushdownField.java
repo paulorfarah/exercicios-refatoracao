@@ -1,9 +1,13 @@
 package refatoracoes.generalizacao;
 
-public class PushdownField extends SuperClass{
+public class PushdownField extends SuperClass {
 
-	public void publicMethod() {
-		System.out.println("PushdownField");
-	}
+    private float health;
+
+    public void publicMethod() {
+
+        System.out.println("PushdownField");
+
+    }
 
 }

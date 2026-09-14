@@ -1,22 +1,19 @@
 package refatoracoes.simplificar;
 
 public class ReplaceParameterWithExplicitMethod {
-	void setValue(String name, int value, int height, int width) {
-		  if (name.equals("height")) {
-		    height = value;
-		    return;
-		  }
-		  if (name.equals("width")) {
-		    width = value;
-		    return;
-		  }
-		  Assert a = new Assert();
-		  a.shouldNeverReachHere();
-		}
-	
-	public class Assert {
-		public void shouldNeverReachHere() {
-			System.out.println("não deveria entrar aqui...");
-		}
-	}
+
+    void setHeight(int value, int height) {
+        height = value;
+    }
+
+    void setWidth(int value, int width) {
+        width = value;
+    }
+
+    public class Assert {
+
+        public void shouldNeverReachHere() {
+            System.out.println("não deveria entrar aqui...");
+        }
+    }
 }
