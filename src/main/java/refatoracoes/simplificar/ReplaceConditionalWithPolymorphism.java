@@ -1,37 +1,39 @@
 package refatoracoes.simplificar;
 
-public class ReplaceConditionalWithPolymorphism {
-	private static final int EUROPEAN = 0;
-	private static final int AFRICAN = 1;
-	private static final int NORWEGIAN_BLUE = 2;
+public abstract class ReplaceConditionalWithPolymorphism {
 
-	// ...
-	  double getSpeed(int type, int numberOfCoconuts, Object voltage, boolean isNailed) {
-	    switch (type) {
-	      case EUROPEAN:
-	        return getBaseSpeed();
-	      case AFRICAN:
-	        return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
-	      case NORWEGIAN_BLUE:
-			return (isNailed) ? 0 : getBaseSpeed(voltage);
-	    }
-	    throw new RuntimeException("Should be unreachable");
-	  }
+	abstract double getSpeed(int numberOfCoconuts, Object voltage, boolean isNailed);
 
-	private double getBaseSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	private double getBaseSpeed(Object voltage) {
-		// TODO Auto-generated method stub
+	protected double getBaseSpeed() {
 		return 0;
 	}
 
-	private int getLoadFactor() {
-		// TODO Auto-generated method stub
+	protected double getBaseSpeed(Object voltage) {
 		return 0;
 	}
 
+	protected int getLoadFactor() {
+		return 0;
+	}
+}
 
+class European extends ReplaceConditionalWithPolymorphism {
+	@Override
+	double getSpeed(int numberOfCoconuts, Object voltage, boolean isNailed) {
+		return getBaseSpeed();
+	}
+}
+
+class African extends ReplaceConditionalWithPolymorphism {
+	@Override
+	double getSpeed(int numberOfCoconuts, Object voltage, boolean isNailed) {
+		return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
+	}
+}
+
+class NorwegianBlue extends ReplaceConditionalWithPolymorphism {
+	@Override
+	double getSpeed(int numberOfCoconuts, Object voltage, boolean isNailed) {
+		return (isNailed) ? 0 : getBaseSpeed(voltage);
+	}
 }

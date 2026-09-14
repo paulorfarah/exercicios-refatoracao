@@ -7,7 +7,7 @@ public class RenameMethod {
 	  /**
 	   * Method returns customer's lastname.
 	   */
-	  String getlnm() {
+	  String getLastName() {
 	    return lastName;
 	  }
 }

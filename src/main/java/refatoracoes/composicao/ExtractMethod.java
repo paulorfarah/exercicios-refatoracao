@@ -3,10 +3,7 @@ package refatoracoes.composicao;
 public class ExtractMethod {
 	void printOwing(String name) {
 		  printBanner();
-
-		  // Print details.
-		  System.out.println("name: " + name);
-		  System.out.println("amount: " + getOutstanding());
+		  printDetails(name);
 		}
 	
 	private int getOutstanding() {
@@ -15,6 +12,11 @@ public class ExtractMethod {
 
 	private void printBanner() {
 		System.out.println("-- banner --");
+	}
+
+	private void printDetails(String name) {
+		System.out.println("name: " + name);
+		System.out.println("amount: " + getOutstanding());
 	}
 
 }
