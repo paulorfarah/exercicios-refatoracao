@@ -1,37 +1,59 @@
 package refatoracoes.simplificar;
 
-public class ReplaceConditionalWithPolymorphism {
-	private static final int EUROPEAN = 0;
-	private static final int AFRICAN = 1;
-	private static final int NORWEGIAN_BLUE = 2;
+public abstract class ReplaceConditionalWithPolymorphism {
 
-	// ...
-	  double getSpeed(int type, int numberOfCoconuts, Object voltage, boolean isNailed) {
-	    switch (type) {
-	      case EUROPEAN:
-	        return getBaseSpeed();
-	      case AFRICAN:
-	        return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
-	      case NORWEGIAN_BLUE:
-			return (isNailed) ? 0 : getBaseSpeed(voltage);
-	    }
-	    throw new RuntimeException("Should be unreachable");
-	  }
+    public abstract double getSpeed();
 
-	private double getBaseSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	private double getBaseSpeed(Object voltage) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    protected double getBaseSpeed() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	private int getLoadFactor() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    protected double getBaseSpeed(Object voltage) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
+    protected int getLoadFactor() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
+    public static class European extends ReplaceConditionalWithPolymorphism {
+
+        @Override
+        public double getSpeed() {
+            return getBaseSpeed();
+        }
+    }
+
+    public static class African extends ReplaceConditionalWithPolymorphism {
+
+        private int numberOfCoconuts;
+
+        public African(int numberOfCoconuts) {
+            this.numberOfCoconuts = numberOfCoconuts;
+        }
+
+        @Override
+        public double getSpeed() {
+            return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
+        }
+    }
+
+    public static class NorwegianBlue extends ReplaceConditionalWithPolymorphism {
+
+        private Object voltage;
+        private boolean isNailed;
+
+        public NorwegianBlue(Object voltage, boolean isNailed) {
+            this.voltage = voltage;
+            this.isNailed = isNailed;
+        }
+
+        @Override
+        public double getSpeed() {
+            return isNailed ? 0 : getBaseSpeed(voltage);
+        }
+    }
 }
