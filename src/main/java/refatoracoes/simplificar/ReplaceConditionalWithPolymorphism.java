@@ -1,37 +1,50 @@
 package refatoracoes.simplificar;
 
-public class ReplaceConditionalWithPolymorphism {
-	private static final int EUROPEAN = 0;
-	private static final int AFRICAN = 1;
-	private static final int NORWEGIAN_BLUE = 2;
+public abstract class Bird {
 
-	// ...
-	  double getSpeed(int type, int numberOfCoconuts, Object voltage, boolean isNailed) {
-	    switch (type) {
-	      case EUROPEAN:
-	        return getBaseSpeed();
-	      case AFRICAN:
-	        return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
-	      case NORWEGIAN_BLUE:
-			return (isNailed) ? 0 : getBaseSpeed(voltage);
-	    }
-	    throw new RuntimeException("Should be unreachable");
-	  }
+    public abstract double getSpeed();
 
-	private double getBaseSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	private double getBaseSpeed(Object voltage) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    protected double getBaseSpeed() {
+        return 0;
+    }
 
-	private int getLoadFactor() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    protected double getBaseSpeed(Object voltage) {
+        return 0;
+    }
 
+    protected int getLoadFactor() {
+        return 0;
+    }
+}
 
+class EuropeanBird extends Bird {
+    public double getSpeed() {
+        return getBaseSpeed();
+    }
+}
+
+class AfricanBird extends Bird {
+    private final int numberOfCoconuts;
+
+    public AfricanBird(int numberOfCoconuts) {
+        this.numberOfCoconuts = numberOfCoconuts;
+    }
+
+    public double getSpeed() {
+        return getBaseSpeed() - getLoadFactor() * numberOfCoconuts;
+    }
+}
+
+class NorwegianBlueBird extends Bird {
+    private final Object voltage;
+    private final boolean isNailed;
+
+    public NorwegianBlueBird(Object voltage, boolean isNailed) {
+        this.voltage = voltage;
+        this.isNailed = isNailed;
+    }
+
+    public double getSpeed() {
+        return isNailed ? 0 : getBaseSpeed(voltage);
+    }
 }
