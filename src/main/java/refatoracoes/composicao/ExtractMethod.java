@@ -1,14 +1,17 @@
 package refatoracoes.composicao;
 
 public class ExtractMethod {
-	void printOwing(String name) {
+	 void printOwing(String name) {
 		  printBanner();
-
 		  // Print details.
-		  System.out.println("name: " + name);
-		  System.out.println("amount: " + getOutstanding());
+		  printDetails(name);
 		}
-	
+
+	private void printDetails(String name){
+		System.out.println("name: " + name);
+		System.out.println("amount: " + getOutstanding());
+	}
+
 	private int getOutstanding() {
 		return 100;
 	}
